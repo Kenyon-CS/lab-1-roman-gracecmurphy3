@@ -1,6 +1,25 @@
 #include "roman.h"
 #include <unordered_map>
 
+Roman::Roman() : romanNumeral(""), integerValue(0){}
+Roman::Roman(const std::string& roman) : romanNumeral(roman), integerValue(romanToInt(roman)){}
+Roman::Roman(int value) : integerValue(value), romanNumeral(intToRoman(value)){}
+
+void Roman::printRoman() const {
+    std::cout << romanNumeral << std::endl;
+}
+
+void Roman::printInteger() const {
+    std::cout << integerValue << std::endl;
+}
+
+std::string Roman::getRoman() const {
+    return romanNumeral;
+}
+
+int Roman::getInt() const {
+    return integerValue;
+}
 int Roman::romanToInt(const std:: string& roman) {
     std::unordered_map<char, int> romanDict = {
         {'I', 1}, {'i', 1}, {'V', 5}, {'v', 5}, 
